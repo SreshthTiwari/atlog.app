@@ -225,7 +225,7 @@ header .image-text .profession{
     padding: 10px;
     font-size: 30px;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
     .home, .sidebar{
         display: none;
     }
