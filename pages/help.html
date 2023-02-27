@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styling/common.css" />
+    <!-- <link rel="stylesheet" href="../styling/student.css" /> -->
+    <link rel="stylesheet" href="../styling/help.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"
+    ></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+    <title>@Log - Carers</title>
+  </head>
+  <body>
+    <nav class="sidebar">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <img src="../images/logoo.png" alt="" />
+          </span>
+
+          <div class="text logo-text">
+            <span class="name">Admin Page</span>
+            <!-- <span class="profession">Web developer</span> -->
+          </div>
+        </div>
+
+        <!-- <i class="bx bx-chevron-right toggle"></i> -->
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="../pages/home.html">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="text nav-text">Dashboard</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="../pages/buses.html">
+                <i class="bx bxs-bus-school icon"></i>
+                <span class="text nav-text">Buses Info</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="../pages/students.html">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="text nav-text">Student Info</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="../pages/carer.html">
+                <i class="bx bx-list-ul icon"></i>
+                <span class="text nav-text">Carer Info</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="#">
+                <i class="bx bx-question-mark icon"></i>
+                <span class="text nav-text">Help</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-content">
+          <li class="logoutt">
+            <a href="#" id="logout">
+              <i class="bx bx-log-out icon"></i>
+              <span class="text nav-text logouttext">Logout</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </nav>
+    <div class="home">
+      <div class="up">
+        <div class="text">
+          <h1>Help Page</h1>
+          <h2>View instructional videos, FAQs, and contact developers</h2>
+        </div>
+        <div class="icon">
+          <i class="bx bx-message-square-dots"></i>
+          <!-- <div class="nobuses"> -->
+          <!-- <h1>30</h1> -->
+          <!-- <h2>Carers</h2> -->
+          <!-- </div> -->
+        </div>
+      </div>
+      <div class="content">
+        <h1>This page is currently being worked on</h1>
+        <h3>
+          We're working on the most helpful videos, and also a reliable contact
+          form
+        </h3>
+      </div>
+    </div>
+    <script type="module">
+      import {
+        getAuth,
+        signOut,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+
+      import {
+        ref,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+      import {
+        getDatabase,
+        set,
+        get,
+        child,
+        update,
+        remove,
+      } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyAKQ7x0iXdc9zPASPl8fe0Zy3w977sslwQ",
+        authDomain: "schooltransportthingtest.firebaseapp.com",
+        databaseURL:
+          "https://schooltransportthingtest-default-rtdb.firebaseio.com",
+        projectId: "schooltransportthingtest",
+        storageBucket: "schooltransportthingtest.appspot.com",
+        messagingSenderId: "1022909830472",
+        appId: "1:1022909830472:web:14e6c0005a15bcfbed4f7d",
+        measurementId: "G-9477HH598G",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const auth = getAuth();
+
+      //log out user if not signed in
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          console.log("user signed in");
+        } else {
+          console.log("user not signed in");
+          window.location.href = "../index.html";
+        }
+      });
+    </script>
+  </body>
+</html>

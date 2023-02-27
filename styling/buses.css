@@ -1,0 +1,201 @@
+*{
+    color: white;
+    transition: .3s ease;
+}
+:root{
+    --txt: white;
+    --bodyy: #ede4f0;
+    --otherpurple: #ADB8F2;
+    --primary: linear-gradient(#ADB8F2, #BBC5F8);
+}
+::-webkit-scrollbar{
+    width: 0;
+}
+@keyframes dban{
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes otan{
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0px);
+
+    }
+}
+body{
+    padding: 0;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.home .up{
+    animation: dban 3s;
+    transition: .3s ease;
+    background: var(--primary);
+    background-size: cover;
+    width: 88%;
+    margin: 50px auto;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 50px  rgba(0, 0, 0, 0.12);
+}
+.home .up .text{
+    color: var(--txt);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.text h1{
+    font-size: 30px;
+}
+.text h2{
+    padding: 10px 0;
+    font-size: 20px;
+}
+.home .up .icon{
+    padding: 30px;
+    display: flex;
+    align-items: center;
+} 
+.home .up i{
+    font-size: 100px;
+    text-align: center;
+    padding: 0 20px;
+}
+.icon .nobuses{
+    display: flex;
+    flex-direction: column;
+}
+.nobuses h1{
+    text-align: center;
+    font-size: 40px;
+}
+.busdata{
+    width: 88%;
+    margin: auto;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+}
+.other{
+    animation: otan 3s;
+
+    background: var(--primary);
+    box-shadow: 0 0 50px  rgba(0, 0, 0, 0.12);
+    padding: 30px;
+    border-radius: 12px;
+    width: 35%;
+    padding-bottom: 40px;
+}
+.other .stop{
+    animation: otan 3s;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: var(--txt);
+    padding: 20px;
+    border-radius: 12px;
+}
+.other .stop .route{
+    display: flex;
+    flex-direction: row;
+}
+.other .stop .route h2{
+    color: var(--otherpurple);
+    margin-right: 20px;
+    text-align: center;
+}
+.other .stop .route select{
+    color: var(--otherpurple);
+    background: transparent;
+    border: none;
+    font-size: 1.6vw;
+    font-weight: 500;
+}
+.other .stop .route select:active{
+    border: none;
+}
+.other .stop .route select:focus{
+    border: none;
+}
+.other .stop .route option{
+    background: var(--primary);
+    color: var(--otherpurple);
+    border: none;
+}
+.other .stop .eta{
+    display: flex;
+}
+.other .stop .eta h2{
+    color: var(--otherpurple);
+
+}
+.other .stop .eta h2#eta{
+    color: var(--otherpurple);
+    margin-left: 10px;
+}
+.other .students{
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    height: 43vh;
+}
+.other .students .info::-webkit-scrollbar{
+    width: 5px;
+}
+.other .students .info::-webkit-scrollbar-corner{
+    background-color: var(--primary);
+}
+.other .students .info::-webkit-scrollbar-thumb{
+    background: var(--txt);
+    border-radius: 12px;
+    margin-top: 100px;
+}
+.other .students .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+    height: 43vh;
+    font-size: 20px;
+}
+.mapout{
+    border-radius: 12px;
+    background: var(--primary);
+    box-shadow: 0 0 50px  rgba(0, 0, 0, 0.12);
+    width: 60%;
+    display: flex;
+    align-items: center;
+    animation: otan 3s;
+}
+.map{
+    margin: auto;
+    width: 95%;
+    height: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.map h1{
+    font-size: 45px;
+}
+.map h3{
+    font-weight: 400;
+    padding: 30px;
+    font-size: 30px;
+}

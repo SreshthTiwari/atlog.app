@@ -1,0 +1,694 @@
+*{
+    color: white;
+    transition: .3s ease;
+}
+:root{
+    --otherpurple: #ffd9fc;
+    --grey: #666;
+    --shadow: 0px 0px 15px rgba(0, 0, 0, 0.17);
+    --txt: white;
+    --bodyy: #ede4f0;
+    --otherpurple: #ADB8F2;
+    --primary: linear-gradient(#ADB8F2, #BBC5F8);
+}
+::-webkit-scrollbar{
+    width: 0;
+}
+@keyframes dban{
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+@keyframes inan{
+    0%{
+        opacity: 0;
+        /* transform: translateX(-30px); */
+    }
+
+    100%{
+        /* transform: translateX(0px); */
+        opacity: 1;
+    }
+}
+
+@keyframes inan1{
+    0%{
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes inan2{
+    0%{
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes lastan{
+    0%{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+.home .User{
+    animation: dban 3s;
+    transition: .3s ease;
+    background: var(--primary);
+    background-size: cover;
+    width: 88%;
+    margin: 50px auto;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+}
+.home .User .text{
+    color: var(--txt);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.text h1{
+    font-size: 30px;
+}
+.text h2{
+    padding: 10px 0;
+    font-size: 20px;
+}
+.home .User .plan{
+    padding: 30px;
+    display: flex;
+    align-items: center;
+} 
+.home .User .plan i{
+    font-size: 100px;
+    text-align: center;
+    padding: 0 20px;
+}
+.plan h2{
+    margin-bottom: 20px;
+    margin-top: -20px;
+}
+.plan a{
+    border: 2px solid var(--txt);
+    border-radius: 9px;
+    padding: 9px 20px;
+    outline: none;
+    font-weight: 900;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 10px;
+    transition: .3s ease;
+}
+.plan a:hover{
+    background-color: var(--txt);
+    color: var(--otherpurple);
+
+}
+.home .insights{
+    width: 88%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: black; */
+    /* animation: inan 3s ; */
+    margin: auto;
+}
+
+.home .insights .col{
+    background: var(--primary);
+    border-radius: 12px;
+    width: 33%;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+    transition: .3s ease;
+}
+
+.home .insights .col:nth-child(2){
+    margin: 0px 40px;
+    animation: inan 3s;
+}
+
+.col:nth-child(1){
+    animation: inan1 3s;
+}
+
+.col:nth-child(3){
+    animation: inan2 3s;
+}
+
+.col .textt h1{
+    font-size: 45px;
+}
+
+.col .icon i{
+    font-size: 100px;
+}
+
+.home .insights .col:hover{
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    /* background: var(--hovercol); */
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.17);
+}
+
+.next{
+    width: 88%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 50px auto 70px auto;
+    height: 50vh;
+}
+
+.graph{
+    width: 60%;
+    margin-bottom: 25px;
+    animation: lastan 3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.graph:hover{
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+.graphh{
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    background: var(--primary);
+}
+
+.other{
+    background: transparent;
+    padding: 0;
+    text-align: right;
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    min-height: 50vh;
+
+}
+
+.container{
+    display: flex;
+    border-radius: 8px;
+    row-gap: 30px;
+    flex-direction: column;
+    align-items: center;
+}
+.circular-progress{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: conic-gradient(var(--txt) 3.6deg, #ffffff05 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.circular-progress::before{
+    content: "";
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: #b1bbf1;
+}
+.progress-value{
+    position: relative;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--txt);
+}
+.mto{
+    display: flex;
+    align-items: center;
+    background: var(--primary);  
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    padding: 30px;
+    animation: lastan 3s;
+}
+.mto:hover{
+    box-shadow: var(--shadow);
+}
+.othertext{
+    padding: 30px;
+}
+.othertext h3{
+    font-size: 15px;
+}
+.shortcuts{
+    width: 100%;
+    animation: lastan 3s;
+    background: var(--primary);  
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.shortcuts:hover{
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+.shortcuts .text{
+    padding: 15px;
+}
+.shortcuts .icons{
+    display: flex;
+    width: 100%;
+    font-size: 25px;
+    padding: 10px 10px 10px 20px;
+    margin-bottom: 10px;
+}
+.icons .aa{
+    margin: auto;
+}
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    /* border-bottom: 1px dotted black; If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tttext {
+    visibility: hidden;
+    margin: auto;
+    width: 120px;
+    top: -25px;
+    right: 105%;
+    background-color: var(--txt);
+    color: var(--otherpurple);
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    text-align: center;
+    font-size: .6em;
+    z-index: 1;
+    transition: .1s ease;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .aa:hover  .tttext{
+    visibility: visible;
+    /* background: black; */
+  }
+.icons a{
+    padding: 4px 10px;
+    border: 1px solid var(--txt);
+    border-radius: 50%;
+    transition: .3s ease;
+}
+.last{
+    padding-top: 50px;
+    position: relative;
+    width: 88%;
+    margin: auto;
+}
+/* #region home outer */
+.home .main{
+    width: 100%;
+    height: 89vh;
+    border-radius: 8px;
+    background: var(--primary);
+    margin:auto;
+    box-shadow:var(--shadow);
+}
+
+.home .main .text{
+    font-size: 2vw;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    color: var(--txt);
+    padding: 1%;
+}
+
+
+.home .main .route{
+    margin: 0;
+    font-size: 1.6vw;
+    color: var(--txt);
+    font-weight: 500;
+    width: 100%;
+    text-align: center;
+}
+
+.home .main .route select{
+    background: transparent;
+    color: var(--txt);
+    border: none;
+    font-size: 1.3vw;
+    font-weight: 500;
+}
+
+.home .main .route select:active{
+    border: none;
+}
+
+.home .main .route select:focus{
+    border: none;
+}
+
+.home .main .route option{
+    background: var(--otherpurple);
+    border: none;
+}
+
+.home .main .route .addbutton{
+    padding: 9px 20px;
+    border: 1px solid var(--txt);
+    border-radius: 10px;
+    color: var(--txt);
+    background: var(--otherpurple);
+    transition: .3s ease;
+    font-size: 1.3vw;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.home .main .route .addbutton:hover{
+    background-color: var(--txt);
+    color: var(--otherpurple);
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.home .main .route input{
+    background: none;
+    color: var(--txt);
+    border: none;
+    font-size: 1.5vw;
+    width: 18%;
+    text-align: center;
+    border-bottom: 1px solid var(--txt);
+    outline: none;
+}
+
+.route input[type="date"]::-webkit-calendar-picker-indicator{
+    filter: invert(1);
+}
+/* #endregion */
+
+/* #region addmenu */
+.home .addmenu{
+    width: 45%;
+    height: 54vh;
+    z-index: 100;
+    display: none;
+    position: absolute;
+    color: var(--txt);
+    top: 20vh;
+    left: 25%;
+    box-shadow:var(--shadow);
+    background: var(--sidebar-color);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.addmenu h3{
+    font-size: 2.3vw;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.addmenu label{
+    font-size: 1.5vw;
+    font-weight: 200;
+}
+
+.addmenu input{
+    border: none;
+    border-radius: 8px;
+    color: var(--sidebar-color);
+    font-size: 1.2vw;
+    padding: .6vw 1.2vw; 
+    margin: 10px;
+}
+
+.addmenu input:focus, .addmenu input:active{
+    outline: none;
+}
+
+.addmenubutton{
+    padding: 9px 20px;
+    background-color: var(--table-text);
+    border: 1px solid var(--primary-color-light);
+    border-radius: 10px;
+    color: var(--primary-color);
+    transition: .3s ease;
+    font-size: 1vw;
+    margin: 5px;
+    margin-top: 10px;
+}
+
+.addmenubutton:hover{
+    background-color: var(--primary-color);
+    color: var(--table-text);
+    transition: .3s ease;
+}
+/* #endregion */
+
+/* #region student table */
+.home .main{
+    animation: lastan 3s;
+}
+.home .main .info{
+    width: 90%;
+    height: 76%;
+    background: var(--primary-color);
+    border-radius: 10px;
+    overflow: scroll;
+    margin: 15px auto 0 auto;
+}
+
+.home .main .info table{
+    width: 100%;
+    color: var(--table-text);
+    font-size: 1.2vw;
+    text-align: center;
+    font-weight: 600;
+    padding: .7vw;
+}
+
+.home .main .info th{
+    font-size: 1.4vw;
+    position: sticky;
+    top: 0;
+    background: var(--primary-color);
+}
+
+
+.home .main .info .editbutton{
+    padding: 1px 20px;
+    color: var(--table-text);
+    border: 1px solid var(--table-text);
+    border-radius: 10px;
+    background: var(--primary-color);
+    transition: .3s ease;
+    font-size: 20px;
+    margin: 5px;
+}
+
+.home .main .info .editbutton:hover{
+    color: var(--primary-color);
+    background: var(--table-text);
+    transition: .3s ease;
+}
+
+
+@media screen and (max-width: 1008px) {
+    .home .main .text{
+        padding-top: 5px;
+        font-size: 25px;
+    }
+
+    .home .main .route, .home .main .route select{
+        padding: 5px;
+        font-size: 20px;
+    }
+
+    .home .main .info table{
+        font-size: 10px;
+        padding-top: 20px;
+    }
+
+    .home .main .info table th{
+        font-size: 13px;
+    }
+
+    .home .main .info .editbutton{
+        font-size: 11px;
+    }
+
+    .addbutton{
+        font-size: 15px;
+        margin: 2px;
+    }
+}
+/* #endregion */
+
+/* #region editform design */
+.editform{
+    width: 31%;
+    height: 16vw;
+    z-index: 100;
+    visibility: hidden;
+    position: absolute;
+    color: var(--txt);
+    top: 33vh;
+    left: 35%;
+    box-shadow:var(--shadow);
+    background: var(--sidebar-color);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.editform h3{
+    font-size: 2.6vw;
+    padding: 1vw;
+    width: 100%;
+    text-align: center;
+}
+
+.editform input{
+    border: none;
+    border-radius: 8px;
+    color: var(--sidebar-color);
+    font-size: 1.2vw;
+    padding: .6vw 1.2vw;
+}
+
+.editform input:focus, .editform input:active, .editform input::selection, .editform input:valid{
+    outline: none;
+}
+
+.editform .buttonss{
+    width: 100%;
+    padding-top: 1.5vw;
+}
+
+.editform button{
+    background-color: transparent;
+    padding: 9px 1.2vw;
+    font-size: 1.2vw;
+    border: none;
+    color: var(--txt);
+    border-radius: 12px;
+    border: 1px solid var(--txt);
+    /* margin-top: 10px; */
+    transition: .3s ease;
+}
+
+.editform button:hover{
+    background: var(--primary-color);
+    transition: .3s ease;
+    color: var(--table-text);
+}
+/* #endregion */
+
+/* #region excelmenu */
+.excelmenu{
+    z-index: 100;
+    position: absolute; 
+    display: none;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    color: var(--otherpurple);
+    box-shadow:var(--shadow);
+    background: var(--primary);
+    background: var(--bodyy);
+    border-radius: 10px;
+    text-align: center;
+}
+.excelmenu h3{
+    font-size: 2.3vw;
+    width: 100%;
+    padding: 20px;
+    color: var(--otherpurple);
+    text-align: center;   
+}
+.excelmenu .down p{
+    font-size: 22px;
+    color: var(--otherpurple);
+
+    padding: 20px;
+}
+.excelmenu .wrapperr{
+    padding: 20px;
+}
+.excelmenu button{
+    padding: 0px;
+    background-color: transparent;
+    color: var(--otherpurple);
+    border: 1px solid var(--otherpurple);
+    padding: 9px 20px ;
+    border-radius: 8px;
+    transition: .3s ease;
+    font-size: 1.2vw;
+    margin: 5px;
+}
+
+.excelmenu button:hover{
+    transition: .3s ease;
+    background-color: var(--otherpurple);
+    color: var(--bodyy);
+    border: 1px solid var(--otherpurple);
+}
+
+.excelmenu input::-webkit-file-upload-button{
+    background-color: transparent;
+    color: var(--otherpurple);
+    border: 1px solid var(--otherpurple);
+    padding: 9px 20px ;
+    border-radius: 8px;
+    transition: .3s ease;
+    font-size: 1.2vw;
+    margin: 5px;
+}
+
+.excelmenu input::-webkit-file-upload-button:hover{
+    transition: .3s ease;
+    background-color: var(--otherpurple);
+    color: var(--bodyy);
+    border: 1px solid var(--otherpurple);
+}
+/* #endregion */

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styling/common.css" />
+    <!-- <link rel="stylesheet" href="../styling/student.css" /> -->
+    <link rel="stylesheet" href="../styling/student.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"
+    ></script>
+    <link rel="icon" type="image/x-icon" href="../images/logo.png" />
+    <title>@Log - Students</title>
+  </head>
+  <body>
+    <nav class="sidebar">
+      <header>
+        <div class="image-text">
+          <span class="image">
+            <img src="../images/logoo.png" alt="" />
+          </span>
+
+          <div class="text logo-text">
+            <span class="name">Admin Page</span>
+            <!-- <span class="profession">Web developer</span> -->
+          </div>
+        </div>
+
+        <!-- <i class="bx bx-chevron-right toggle"></i> -->
+      </header>
+
+      <div class="menu-bar">
+        <div class="menu">
+          <ul class="menu-links">
+            <li class="nav-link">
+              <a href="../pages/home.html">
+                <i class="bx bx-home-alt icon"></i>
+                <span class="text nav-text">Dashboard</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="../pages/buses.html">
+                <i class="bx bxs-bus-school icon"></i>
+                <span class="text nav-text">Buses Info</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="#">
+                <i class="bx bx-bar-chart-alt-2 icon"></i>
+                <span class="text nav-text">Student Info</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="../pages/carer.html">
+                <i class="bx bx-list-ul icon"></i>
+                <span class="text nav-text">Carer Info</span>
+              </a>
+            </li>
+
+            <li class="nav-link">
+              <a href="../pages/help.html">
+                <i class="bx bx-question-mark icon"></i>
+                <span class="text nav-text">Help</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bottom-content">
+          <li class="logoutt">
+            <a href="#" id="logout">
+              <i class="bx bx-log-out icon"></i>
+              <span class="text nav-text logouttext">Logout</span>
+            </a>
+          </li>
+        </div>
+      </div>
+    </nav>
+    <div class="home">
+      <div class="excelmenu" id="excelmenu">
+        <h3>Extract Excel File</h3>
+        <button class="excelbutton" onclick="downloadexcel()">
+          Download Data
+        </button>
+        <br />
+        <input type="file" id="file_upload" />
+        <button class="excelbutton" onclick="uploadexcel()">Upload Data</button>
+        <br />
+        <h1>
+          Note: Excel sheet must contain 5 columns: Pickup, Name, Ptime, Dtime
+          and Route, in that order
+        </h1>
+        <button class="excelbutton" onclick="cancelexcel()">Close</button>
+      </div>
+      <div class="addmenu" id="addmenu">
+        <h3>Add Record</h3>
+        <label for="Student Name">Name</label>
+        <input type="text" id="newname" />
+        <br />
+        <label for="Student Ptime">Ptime</label>
+        <input type="text" id="newptime" />
+        <br />
+        <label for="Student Dtime">Dtime</label>
+        <input type="text" id="newdtime" />
+        <br />
+        <label for="PickupNo.">Pickup No.</label>
+        <input type="text" id="newpickupno" />
+        <br />
+        <button class="addmenubutton" onclick="confirmm()">Confirm</button>
+        <button class="addmenubutton" onclick="cancell()">Close</button>
+      </div>
+      <div class="up">
+        <div class="text">
+          <h1>Students Page</h1>
+          <h2>Manage and view all Student data</h2>
+        </div>
+        <div class="icon">
+          <i class="bx bxs-group"></i>
+          <div class="nobuses">
+            <h1>784</h1>
+            <h2>Students</h2>
+          </div>
+        </div>
+      </div>
+      <div class="studentdata">
+        <div class="studenttable">
+          <div class="main">
+            <div class="route">
+              Student Information - Route:
+              <select name="route" id="routeno">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+              </select>
+            </div>
+            <div class="info">
+              <table id="studentinfo">
+                <tr>
+                  <th>Pickup</th>
+                  <th>Name</th>
+                  <th>Ptime</th>
+                  <th>Dtime</th>
+                  <th>Route</th>
+                  <th>Control</th>
+                </tr>
+                <tbody id="tbody1"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="options">
+          <div class="buttons">
+            <h1>Options</h1>
+            <button class="addbutton" onclick="add()">Add Record</button>
+            <button class="addbutton" onclick="excell()">
+              Upload/Download Data
+            </button>
+          </div>
+          <div class="more">
+            <h1>Note:</h1>
+            <h2>More Features for this page are being worked on!</h2>
+            <!-- <a class="addbutton" href="#more">Scroll</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="editform" id="editform">
+        <h3>New Route</h3>
+        <input type="text" id="newroute" />
+        <div class="buttonss">
+          <button class="leftt" onclick="cancel()">Close</button>
+          <button onclick="enter()">Enter</button>
+        </div>
+      </div>
+      <div id="more">a</div>
+    </div>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
+    <script type="module">
+      import {
+        getAuth,
+        signOut,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-auth.js";
+
+      import {
+        ref,
+        onValue,
+      } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-app.js";
+      import {
+        getDatabase,
+        set,
+        get,
+        child,
+        update,
+        remove,
+      } from "https://www.gstatic.com/firebasejs/9.9.1/firebase-database.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyAKQ7x0iXdc9zPASPl8fe0Zy3w977sslwQ",
+        authDomain: "schooltransportthingtest.firebaseapp.com",
+        databaseURL:
+          "https://schooltransportthingtest-default-rtdb.firebaseio.com",
+        projectId: "schooltransportthingtest",
+        storageBucket: "schooltransportthingtest.appspot.com",
+        messagingSenderId: "1022909830472",
+        appId: "1:1022909830472:web:14e6c0005a15bcfbed4f7d",
+        measurementId: "G-9477HH598G",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const auth = getAuth();
+
+      //log out user if not signed in
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          console.log("user signed in");
+        } else {
+          console.log("user not signed in");
+          window.location.href = "../index.html";
+        }
+      });
+
+      const route = document.getElementById("routeno");
+
+      var editform = document.getElementById("editform");
+      var addmenu = document.getElementById("addmenu");
+      var excelmenu = document.getElementById("excelmenu");
+
+      var stuno = "";
+
+      window.add = function add() {
+        addmenu.style.display = "block";
+      };
+
+      window.cancelexcel = function cancelexcel() {
+        excelmenu.style.display = "none";
+      };
+
+      window.excell = function excell() {
+        console.log("this work");
+        excelmenu.style.display = "block";
+      };
+
+      window.downloadexcel = function downloadexcel() {
+        console.log("this should download excel");
+        var tablee = document.getElementById("studentinfo");
+
+        var excelFile = XLSX.utils.table_to_book(tablee, { sheet: "sheet1" });
+        XLSX.write(excelFile, {
+          bookType: "xlsx",
+          bookSST: true,
+          type: "base64",
+        });
+        XLSX.writeFile(excelFile, "atlog_studentdata" + ".xlsx");
+      };
+
+      window.uploadexcel = function uploadexcel() {
+        console.log("this should upload excel");
+        var files = document.getElementById("file_upload").files;
+        if (files.length == 0) {
+          alert("Please choose any file...");
+          return;
+        }
+        var filename = files[0].name;
+        var extension = filename
+          .substring(filename.lastIndexOf("."))
+          .toUpperCase();
+        if (extension == ".XLS" || extension == ".XLSX") {
+          //Here calling another method to read excel file into json
+          excelFileToJSON(files[0]);
+          console.log("Called other function");
+        } else {
+          alert("Please select a valid excel file.");
+        }
+      };
+
+      function excelFileToJSON(file) {
+        try {
+          var reader = new FileReader();
+          reader.readAsBinaryString(file);
+          reader.onload = function (e) {
+            var data = e.target.result;
+            var workbook = XLSX.read(data, {
+              type: "binary",
+            });
+            var result = {};
+            var firstSheetName = workbook.SheetNames[0];
+            //reading only first sheet data
+            var jsonData = XLSX.utils.sheet_to_json(
+              workbook.Sheets[firstSheetName]
+            );
+            var strjso = JSON.stringify(jsonData);
+            alert(strjso);
+            console.log(strjso);
+            //displaying the json result into HTML table
+            // displayJsonToHtmlTable(jsonData);
+            uploadjsontofirebase(jsonData);
+          };
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      function uploadjsontofirebase(jsondata) {
+        console.log(jsondata[0]);
+        for (let index = 0; index < jsondata.length; index++) {
+          const element = jsondata[index];
+          set(
+            ref(
+              db,
+              "Students/"
+                .concat(route.options[route.selectedIndex].text)
+                .concat("/")
+                .concat(element["Pickup"])
+                .concat("/")
+            ),
+            element
+          );
+        }
+        alert("Successfully added data");
+        location.reload();
+      }
+
+      window.confirmm = function confirmm() {
+        var newname = document.getElementById("newname").value;
+        var newptime = document.getElementById("newptime").value;
+        var newdtime = document.getElementById("newdtime").value;
+        var newpickupno = document.getElementById("newpickupno").value;
+
+        set(
+          ref(
+            db,
+            "Students/"
+              .concat(route.options[route.selectedIndex].text)
+              .concat("/")
+              .concat(newpickupno)
+              .concat("/")
+          ),
+          {
+            Name: newname,
+            Ptime: newptime,
+            Dtime: newdtime,
+            Route: route.options[route.selectedIndex].text,
+            Pickup: newpickupno,
+          }
+        );
+
+        alert("Successfully added record");
+        addmenu.style.display = "none";
+        location.reload();
+      };
+
+      window.cancell = function cancel() {
+        addmenu.style.display = "none";
+      };
+
+      window.edit = function editt(buttonn) {
+        editform.style.visibility = "visible";
+        const row = buttonn.parentElement.parentElement;
+        stuno = row.firstChild.innerHTML;
+      };
+
+      window.cancel = function cancell() {
+        editform.style.visibility = "hidden";
+      };
+      var stunoo = "";
+      window.deletee = function deletee(buttonnn) {
+        const roww = buttonnn.parentElement.parentElement;
+        stunoo = roww.firstChild.innerHTML;
+
+        if (confirm("Are you sure?") == true) {
+          remove(
+            ref(
+              db,
+              "Students/"
+                .concat(route.options[route.selectedIndex].text)
+                .concat("/")
+                .concat(stunoo)
+            )
+          );
+        }
+      };
+
+      window.enter = function enterr() {
+        const textvalue = document.getElementById("newroute").value;
+        console.log(stuno);
+
+        update(
+          ref(
+            db,
+            "Students/"
+              .concat(route.options[route.selectedIndex].text)
+              .concat("/")
+              .concat(stuno)
+          ),
+          {
+            Route: textvalue,
+          }
+        )
+          .then(() => {
+            console.log("it worked");
+            location.reload();
+          })
+          .catch((error) => {
+            alert("failed");
+          });
+
+        alert("successfully changed route");
+        editform.style.visibility = "hidden";
+      };
+
+      var logoutlink = document.getElementById("logout");
+
+      var tbody = document.getElementById("tbody1");
+
+      function addtotable(no, name, route, ptime, dtime) {
+        let trow = document.createElement("tr");
+        let tdd = document.createElement("td");
+        let td1 = document.createElement("td");
+        let td2 = document.createElement("td");
+        let td3 = document.createElement("td");
+        let td4 = document.createElement("td");
+
+        tdd.innerHTML = no;
+        td1.innerHTML = name;
+        td2.innerHTML = ptime;
+        td4.innerHTML = dtime;
+        td3.innerHTML = route;
+
+        trow.appendChild(tdd);
+        trow.appendChild(td1);
+        trow.appendChild(td2);
+        trow.appendChild(td4);
+        trow.appendChild(td3);
+
+        var controldiv = document.createElement("div");
+        controldiv.innerHTML =
+          '<button class="editbutton" type="button" onclick="edit(this)">Edit</button>';
+        controldiv.innerHTML +=
+          '<button class="editbutton" type="button" onclick="deletee(this)">Delete</button>';
+        trow.appendChild(controldiv);
+        tbody.appendChild(trow);
+      }
+
+      function addalltotable(student) {
+        tbody.innerHTML = "";
+        student.forEach((element) => {
+          addtotable(
+            element.Pickup,
+            element.Name,
+            element.Route,
+            element.Ptime,
+            element.Dtime
+          );
+        });
+        // console.log(student[0]);
+      }
+
+      route.onchange = getdata;
+
+      function getdata() {
+        const dbref = ref(db);
+
+        get(
+          child(
+            dbref,
+            "Students/".concat(route.options[route.selectedIndex].text)
+          )
+        ).then((snapshot) => {
+          var students = [];
+          snapshot.forEach((childsnap) => {
+            students.push(childsnap.val());
+          });
+          console.log(students);
+          addalltotable(students);
+        });
+        onValue(dbref, (snapshot) => {
+          var students = [];
+          snapshot.forEach((childsnap) => {
+            students.push(childsnap.val());
+          });
+          console.log(students[3][1]);
+          // students = students.filter((character) => character !== {});
+          var myrouteno = route.options[route.selectedIndex].text;
+          addalltotable(students[3][parseInt(myrouteno)]);
+        });
+      }
+
+      window.onload = getdata;
+
+      logoutlink.addEventListener("click", function () {
+        const auth = getAuth();
+        signOut(auth)
+          .then(() => {
+            // Sign-out successful.
+          })
+          .catch((error) => {
+            alert("error");
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,235 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+@keyframes fadein{
+    from{
+        opacity: 0;
+        transform: translateX(-90px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+:root{
+    --hovertxt: #9dacf8;
+    --shadow: 0px 0px 15px rgba(104, 104, 104, 0.17);
+    --txt: white;
+    --bodyy: #ede4f0;
+    --otherpurple: #ADB8F2;
+    --primary: linear-gradient(#ADB8F2, #BBC5F8);
+    
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body{
+    min-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: var(--bodyy);
+    transition: var(--tran-05);
+}
+
+::selection{
+    background-color: var(--primary-color);
+    color: #fff;
+}
+/* ===== Sidebar ===== */
+ .sidebar{
+    animation: fadein 3s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    /* width: 16vw; */
+    padding: 10px 14px;
+    background: var(--primary);
+    box-shadow: 20px 0 100px rgba(0, 0, 0, 0.091);
+    box-shadow: var(--shadow);
+    transition: var(--tran-05);
+    z-index: 100;  
+}
+.sidebar li{
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sidebar header .image,
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.sidebar .text,
+.sidebar .icon{
+    color: var(--txt);
+    /* color: #7c70fb; */
+    transition: var(--tran-03);
+}
+
+.sidebar .text{
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+.sidebar.close .text{
+    opacity: 0;
+}
+/* =========================== */
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+.sidebar header .logo-text{
+    display: flex;
+    flex-direction: column;
+}
+header .image-text .name {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: 900;
+}
+
+header .image-text .profession{
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+}
+
+.sidebar header .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar header .image img{
+    width: 40px;
+    border-radius: 6px;
+}
+
+
+.sidebar .menu{
+    margin-top: 60px;
+}
+.sidebar li a{
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    /* padding: 20px 0px; */
+    text-decoration: none;
+    transition: var(--tran-03);
+}
+
+.sidebar li a:hover{
+    background: var(--txt);
+}
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--hovertxt);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+.menu-bar::-webkit-scrollbar{
+    display: none;
+}
+.bottom-content .logoutt{
+    margin-bottom: 20px;
+    background: var(--txt);
+    border-radius: 6px;
+}
+.bottom-content .logoutt .logouttext, .bottom-content .logoutt i{
+    color: var(--hovertxt);
+}
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 250px;
+    height: 100vh;
+    width: calc(100% - 250px);
+    background: var(--bodyy);
+    transition: var(--tran-05);
+}
+.warning{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px;
+    font-size: 1.5vw;
+    background: var(--primary);
+    color: var(--txt);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    font-weight: 900;
+}
+.warning h2{
+    padding: 10px;
+    font-size: 1.6vw;
+}
+.footer{
+    width: 100%;
+    background: var(--primary);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+.footer h3{
+    padding: 10px;
+    font-size: 30px;
+}
+@media (max-width: 1400px) {
+    .home, .sidebar{
+        display: none;
+    }
+    .warning{
+        display: block;
+    }
+}
