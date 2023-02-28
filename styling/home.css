@@ -109,8 +109,7 @@
     padding: 0 20px;
 }
 .plan h2{
-    margin-bottom: 20px;
-    margin-top: -20px;
+    text-align: center;
 }
 .plan a{
     border: 2px solid var(--txt);
@@ -163,11 +162,15 @@
 }
 
 .col .textt h1{
-    font-size: 45px;
+    font-size: 4vw;
+}
+
+.col .textt h2{
+    font-size: 3vw;
 }
 
 .col .icon i{
-    font-size: 100px;
+    font-size: 8vw;
 }
 
 .home .insights .col:hover{
@@ -692,3 +695,14 @@
     border: 1px solid var(--otherpurple);
 }
 /* #endregion */
+@media (max-width: 1200px){
+    .home .insights{
+        flex-direction: column;
+    }
+    .home .insights .col{
+        width: 100%;
+    }
+    .home .insights .col:nth-child(2){
+        margin: 20px;
+    }
+}
