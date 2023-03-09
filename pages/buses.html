@@ -152,6 +152,7 @@
                   </tr>
                   <tbody id="tbody1"></tbody>
                 </table>
+                <div class="loadingdiv" id="loadingdiv"></div>
               </div>
             </div>
           </div>
@@ -215,6 +216,8 @@
       const db = getDatabase(app);
       const auth = getAuth();
 
+      var loader = document.getElementById("loadingdiv");
+
       //log out user if not signed in
       onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -242,8 +245,7 @@
         trow.appendChild(td1);
 
         tbody.appendChild(trow);
-        //   var loading = document.getElementById("lgif");
-        //   loading.style.display = "none";
+        loader.style.display = "none";
       }
 
       function addalltotable(student) {

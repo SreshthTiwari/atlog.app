@@ -189,27 +189,54 @@
     height: 50vh;
 }
 
-.graph{
+.breakdown{
     width: 60%;
     margin-bottom: 25px;
     animation: lastan 3s;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 50vh;
-}
-
-.graph:hover{
-    cursor: pointer;
+    background: var(--primary);
+    border-radius: 12px;
     box-shadow: var(--shadow);
 }
 
-.graphh{
+.breakdown a{
+    border: 2px solid var(--txt);
+    border-radius: 9px;
+    padding: 9px 20px;
+    outline: none;
+    font-weight: 900;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 10px;
+    transition: .3s ease;
+}
+.breakdown h1{
+    padding:  20px;
+    font-size: 4em;
+}
+.breakdown h3{
+    padding: 20px;
+    font-size: 2em;
+}
+.breakdown a:hover{
+    background-color: var(--txt);
+    color: var(--otherpurple);
+}
+.breakdown .working{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.breakdownh{
     height: 100%;
     width: 100%;
     border-radius: 12px;
     box-shadow: var(--shadow);
-    background: var(--primary);
 }
 
 .other{
@@ -515,7 +542,8 @@
     font-size: 1.4vw;
     position: sticky;
     top: 0;
-    background: var(--primary-color);
+    background: var(--txt);
+    color: var(--otherpurple);
 }
 
 
@@ -705,4 +733,37 @@
     .home .insights .col:nth-child(2){
         margin: 20px;
     }
+}
+#noattendance{
+    width: 60%;
+    margin: 5% auto;
+    background: var(--txt);
+    color: black;
+    text-align: center;
+    padding: 20px 20px 60px 20px;
+    border-radius: 12px;
+    display: none;
+    box-shadow: var(--shadow);
+}
+#noattendance h1{
+    color: var(--otherpurple);
+    padding: 20px;
+}
+#noattendance h3{
+    color: var(--otherpurple);
+    margin: 30px;
+}
+#noattendance a{
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid var(--otherpurple);
+    color: var(--otherpurple);
+    cursor: pointer;
+    padding: 9px 20px;
+    border-radius: 12px;
+    transition: .3s ease;
+}
+#noattendance a:hover{
+    background: var(--otherpurple);
+    color: white;
 }

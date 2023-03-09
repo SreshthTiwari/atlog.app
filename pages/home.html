@@ -182,6 +182,12 @@
               </tr>
               <tbody id="tbody1"></tbody>
             </table>
+            <div class="loadingdiv" id="loadingdiv"></div>
+            <div id="noattendance">
+              <h1>Attendance for this date has not been marked</h1>
+              <h3>Think this is an error?</h3>
+              <a href="help.html">Tell Us</a>
+            </div>
           </div>
           <div class="excelmenu homeexcel" id="excelmenu">
             <div class="wrapperr">
@@ -202,8 +208,17 @@
         </div>
       </div>
       <div class="next">
-        <div class="graph">
-          <div id="chart_div" class="graphh"></div>
+        <div class="breakdown">
+          <!-- <div id="chart_div" class="graphh"></div> -->
+          <h1>Bus Status</h1>
+          <div class="working">
+            <h3>All Buses are properly working</h3>
+            <a href="./buses.html">More Information</a>
+          </div>
+          <!-- <div class="breakdownalert">
+            <h3 id="busbroke">Alert! Route no. 5 has broken down</h3>
+            <a href="./buses.html">Location</a>
+          </div> -->
         </div>
         <div class="other">
           <div class="mto">
@@ -224,17 +239,17 @@
             <div class="icons">
               <div class="download aa">
                 <div class="tooltip">
-                  <span class="tttext">Download Data</span>
+                  <span class="tttext">Student Data</span>
                 </div>
-                <a href="#"><i class="bx bxs-download"></i></a>
+                <a href="./students.html"><i class="bx bxs-download"></i></a>
               </div>
               <div class="contact aa">
                 <div class="tooltip"><span class="tttext">Contact</span></div>
-                <a href="#"><i class="bx bx-envelope"></i></a>
+                <a href="./help.html"><i class="bx bx-envelope"></i></a>
               </div>
               <div class="addcarer aa">
                 <div class="tooltip"><span class="tttext">Add Carer</span></div>
-                <a href="#"><i class="bx bx-plus-medical"></i></a>
+                <a href="./carer.html"><i class="bx bx-plus-medical"></i></a>
               </div>
             </div>
           </div>
@@ -250,10 +265,6 @@
       src="https://www.gstatic.com/charts/loader.js"
     ></script>
     <script type="text/javascript">
-      google.charts.load("current", { packages: ["corechart", "line"] });
-      google.charts.setOnLoadCallback(drawBackgroundColor);
-      window.onresize = drawBackgroundColor;
-
       function bus() {
         window.location.href = "../pages/buses.html";
       }
@@ -263,114 +274,6 @@
       function carer() {
         window.location.href = "../pages/carer.html";
       }
-
-      function drawBackgroundColor() {
-        var data = new google.visualization.DataTable();
-        data.addColumn("number", "X");
-        data.addColumn("number", "Students");
-
-        data.addRows([
-          [0, 0],
-          [1, 10],
-          [2, 23],
-          [3, 17],
-          [4, 18],
-          [5, 9],
-          [6, 11],
-          [7, 27],
-          [8, 33],
-          [9, 40],
-          [10, 32],
-          [11, 35],
-          [12, 30],
-          [13, 40],
-          [14, 42],
-          [15, 47],
-          [16, 44],
-          [17, 48],
-          [18, 52],
-          [19, 54],
-          [20, 42],
-          [21, 55],
-          [22, 56],
-          [23, 57],
-          [24, 60],
-          [25, 50],
-          [26, 52],
-          [27, 51],
-          [28, 49],
-          [29, 53],
-          [30, 55],
-          [31, 60],
-          [32, 61],
-          [33, 59],
-          [34, 62],
-          [35, 65],
-          [36, 62],
-          [37, 58],
-          [38, 55],
-          [39, 61],
-          [40, 64],
-          [41, 65],
-          [42, 63],
-          [43, 66],
-          [44, 67],
-          [45, 69],
-          [46, 69],
-          [47, 70],
-          [48, 72],
-          [49, 68],
-          [50, 66],
-          [51, 65],
-          [52, 67],
-          [53, 70],
-          [54, 71],
-          [55, 72],
-          [56, 73],
-          [57, 75],
-          [58, 70],
-          [59, 68],
-          [60, 64],
-          [61, 60],
-          [62, 65],
-          [63, 67],
-          [64, 68],
-          [65, 69],
-          [66, 70],
-          [67, 72],
-          [68, 75],
-          [69, 80],
-        ]);
-
-        var options = {
-          colors: ["white"],
-          title: "Student Attendance",
-          // trendlines: { 0: { color: "white" } },
-          titleTextStyle: { color: "white", fontSize: 25 },
-          hAxis: {
-            baselineColor: "white",
-            title: "Date",
-            textStyle: { color: "white" },
-            titleTextStyle: { color: "white" },
-          },
-          vAxis: {
-            baselineColor: "white",
-
-            title: "Number",
-            textStyle: { color: "white" },
-            titleTextStyle: { color: "white" },
-          },
-          backgroundColor: "",
-          legend: { textStyle: { color: "white" } },
-        };
-
-        var chart = new google.visualization.LineChart(
-          document.getElementById("chart_div")
-        );
-        chart.draw(data, options);
-        console.log("da");
-      }
-
       let circularProgress = document.querySelector(".circular-progress"),
         progressValue = document.querySelector(".progress-value");
 
@@ -521,7 +424,7 @@
       var today = new Date();
       dateinput.value = today.toISOString().substring(0, 10);
 
-      function addtotable(pickup, eat, inbus, mat, name) {
+      function addtotable(pickup, inbus, mat, name) {
         let trow = document.createElement("tr");
         let tdd = document.createElement("td");
         let td1 = document.createElement("td");
@@ -531,6 +434,7 @@
 
         td4.innerHTML = pickup;
         tdd.innerHTML = name;
+
         if (inbus) {
           td1.innerHTML = "In Bus";
         } else {
@@ -541,11 +445,12 @@
         } else {
           td2.innerHTML = "Absent/OT";
         }
-        if (eat) {
-          td3.innerHTML = "Present";
-        } else {
-          td3.innerHTML = "Absent/OT";
-        }
+        // if (eat) {
+        //   td3.innerHTML = "Present";
+        // } else {
+        //   td3.innerHTML = "Absent/OT";
+        // }
+        td3.innerHTML = td2.innerHTML;
 
         trow.appendChild(td4);
         trow.appendChild(tdd);
@@ -554,7 +459,9 @@
         trow.appendChild(td3);
 
         tbody.appendChild(trow);
+        loader.style.display = "none";
       }
+      var todel = document.getElementById("noattendance");
 
       function addalltotable(student) {
         tbody.innerHTML = "";
@@ -563,19 +470,26 @@
           var lengthofobj = student.length;
           var errorr = false;
         } catch (error) {
-          console.log(error);
           var errorr = true;
+          var errormessage = error;
         }
-        if (errorr) {
-          alert("Attendance for the selected date has not been completed");
+        if (
+          errorr &&
+          errormessage ==
+            "TypeError: Cannot read properties of undefined (reading 'length')"
+        ) {
+          // alert("Attendance for the selected date has not been completed");
+          loader.style.display = "none";
+          todel.style.display = "block";
           return false;
         }
         if (!errorr) {
-          for (let index = 0; index < lengthofobj - 3; index++) {
+          for (let index = 0; index < lengthofobj - 1; index++) {
             const element = student[index];
+            console.log(element);
             addtotable(
               index + 1,
-              element.eveningAttendance,
+              // element.eveningAttendance,
               element.inBus,
               element.morningAttendance,
               element.name
@@ -584,10 +498,27 @@
         }
       }
 
+      var loader = document.getElementById("loadingdiv");
+
       route.onchange = getdata;
       document.getElementById("datee").onchange = getdata;
 
       function getdata() {
+        // var newerr = false;
+        // try {
+        //   var todel = document.getElementById("noattendance");
+        //   newerr = false;
+        // } catch (error) {
+        //   newerr = true;
+        //   console.log("ER");
+        // }
+        // if (!newerr) {
+        //   todel.remove();
+        // }
+        if (todel) {
+          todel.style.display = "none";
+        }
+
         const dbref = ref(db);
         var date = document.getElementById("datee").value;
 
@@ -607,7 +538,6 @@
           console.log(students);
           addalltotable(students);
         });
-        onWrite();
         onValue(dbref, (snapshot) => {
           var dateee = document.getElementById("datee").value;
           console.log(dateee);

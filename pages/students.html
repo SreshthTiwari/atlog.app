@@ -180,6 +180,7 @@
                 </tr>
                 <tbody id="tbody1"></tbody>
               </table>
+              <div class="loadingdiv" id="loadingdiv"></div>
             </div>
           </div>
         </div>
@@ -450,6 +451,7 @@
       var logoutlink = document.getElementById("logout");
 
       var tbody = document.getElementById("tbody1");
+      var loader = document.getElementById("loadingdiv");
 
       function addtotable(no, name, route, ptime, dtime) {
         let trow = document.createElement("tr");
@@ -478,6 +480,7 @@
           '<button class="editbutton" type="button" onclick="deletee(this)">Delete</button>';
         trow.appendChild(controldiv);
         tbody.appendChild(trow);
+        loader.style.display = "none";
       }
 
       function addalltotable(student) {
