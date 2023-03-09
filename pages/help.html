@@ -273,11 +273,10 @@
         var name = getInputVal("name");
         var company = getInputVal("company");
         var email = getInputVal("email");
-        var phone = getInputVal("phone");
         var message = getInputVal("message");
 
         // Save message
-        saveMessage(name, company, email, phone, message);
+        saveMessage(name, company, email, message);
 
         // Show alert
         // document.querySelector(".alert").style.display = "block";
@@ -292,7 +291,7 @@
       }
 
       // Save message to firebase
-      function saveMessage(name, company = "r", email, phone, message) {
+      function saveMessage(name, company = "r", email, message) {
         console.log("Messages/".concat(company).concat("/"));
         set(
           ref(
@@ -307,7 +306,6 @@
             name: name,
             company: company,
             email: email,
-            phone: phone,
             message: message,
           }
         );
