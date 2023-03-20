@@ -10,6 +10,9 @@
     --bodyy: #ede4f0;
     --otherpurple: #ADB8F2;
     --primary: linear-gradient(#ADB8F2, #BBC5F8);
+    --primary: linear-gradient(to bottom right, #4d65b3, #5168b5db);
+    --bodyy: white;
+    --otherpurple: #4760b1c5;
 }
 ::-webkit-scrollbar{
     width: 0;
@@ -175,6 +178,7 @@
 
 .home .insights .col:hover{
     cursor: pointer;
+    scale: 1.02;
     box-shadow: var(--shadow);
     /* background: var(--hovercol); */
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.17);
@@ -275,7 +279,8 @@
     height: 120px;
     width: 120px;
     border-radius: 50%;
-    background-color: #b1bbf1;
+    /* background-color: #b1bbf1; */
+    background-color: #556aaf;
 }
 .progress-value{
     position: relative;

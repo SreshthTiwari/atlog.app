@@ -6,7 +6,10 @@
     --txt: white;
     --bodyy: #ede4f0;
     --otherpurple: #ADB8F2;
-    --primary: linear-gradient(#ADB8F2, #BBC5F8)
+    --primary: linear-gradient(#ADB8F2, #BBC5F8);
+    --primary: linear-gradient(to bottom right, #4d65b3, #5168b5db);
+    --bodyy: white;
+    --otherpurple: #4760b1c5;
 }
 ::-webkit-scrollbar{
     width: 0;
@@ -146,6 +149,8 @@ body{
   .contact form label{
     display:block;
     color: var(--otherpurple);
+    padding-bottom: 10px;
+    font-weight: 500;
   }
   
   .contact form p{
@@ -160,6 +165,7 @@ body{
   .contact form button, .contact form input, .contact form textarea{
     width:100%;
     padding:1em;
+    border-radius: 12px;
     border:1px solid var(--otherpurple);
   }
   .contact form input, .contact form textarea{
