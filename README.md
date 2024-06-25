@@ -1,4 +1,4 @@
-# Newer Version
+# New Version
 
 Newer version with purple/blue UI
 
