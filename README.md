@@ -1,5 +1,5 @@
-# New Version
+# Simple demo version
 
-Newer version with purple/blue UI
+Purple/blue UI
 
 Tech Stack: Vanilla JS, CSS, HTML, Firebase
